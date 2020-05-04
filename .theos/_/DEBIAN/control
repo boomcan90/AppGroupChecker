@@ -1,0 +1,11 @@
+Package: com.arjunbrar.appgroupchecker
+Name: AppGroupChecker
+Depends: mobilesubstrate, ws.hbang.common (>= 1.11), com.jakeashacks.jtool
+Architecture: iphoneos-arm
+Description: A simple tweak that checks for Application Groups that are shared between applications locally installed on the device
+Maintainer: Arjun Brar
+Author: Arjun Brar
+Section: Tweaks
+Depiction: https://boomcan90.github.io/depictions/?p=com.arjunbrar.appgroupchecker
+Version: 0.0.2
+Installed-Size: 264
