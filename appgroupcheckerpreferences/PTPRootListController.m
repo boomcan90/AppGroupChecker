@@ -84,7 +84,7 @@
 
     NSString * output = [[allAppGroups valueForKey:@"description"] componentsJoinedByString:@"\n"];
 
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Button Test"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"AppGroup Checker List"
     message:output
     delegate:nil
     cancelButtonTitle:@"Done"
