@@ -35,7 +35,7 @@
     for (int i = 0; i < [applicationsArray count]; i++) {
         
         NSLog(@"%d", i);
-
+        NSLog(@"%@", applicationsArray[i]);
 
         NSString *command = [NSString stringWithFormat:@"%@%@", @"jtool --ent ", applicationsArray[i]];
         
@@ -54,7 +54,7 @@
 
         NSArray *keys = [dict allKeys];
 
-        // NSLog(@"%@", keys);
+        NSLog(@"%@", keys);
         if ([keys containsObject:@"com.apple.security.application-groups"]) {
             
 
@@ -84,12 +84,25 @@
 
     NSString * output = [[allAppGroups valueForKey:@"description"] componentsJoinedByString:@"\n"];
 
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Button Test"
-    message:output
-    delegate:nil
-    cancelButtonTitle:@"Done"
-    otherButtonTitles:nil];
-    [alert show];
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Application Groups"
+                               message:output 
+                               preferredStyle:UIAlertControllerStyleAlert];
+ 
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Copy to Clipboard" style:UIAlertActionStyleDefault
+   handler:^(UIAlertAction * action) {
+       UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+        pasteboard.string = output;
+   }];
+ 
+[alert addAction:defaultAction];
+[self presentViewController:alert animated:YES completion:nil];
+
+    // UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Button Test"
+    // message:output
+    // delegate:nil
+    // cancelButtonTitle:@"Done"
+    // otherButtonTitles:nil];
+    // [alert show];
 }
 
     
